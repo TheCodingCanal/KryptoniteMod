@@ -1,4 +1,8 @@
 {
   "item.kryptonitemod.kryptonite": "Kryptonite",
-  "item.kryptonitemod.kryptonite_ingot": "Kryptonite Ingot"
+  "item.kryptonitemod.kryptonite_ingot": "Kryptonite Ingot",
+
+  "block.kryptonitemod.kryptonite_block": "Block of Kryptonite",
+  "block.kryptonitemod.kryptonite_ore": "Kryptonite Ore",
+  "block.kryptonitemod.deepslate_kryptonite_ore": "Deepslate Kryptonite Ore"
 }
