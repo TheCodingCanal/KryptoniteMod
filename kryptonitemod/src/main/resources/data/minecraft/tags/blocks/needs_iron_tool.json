@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "kryptonitemod:kryptonite_ore",
+    "kryptonitemod:kryptonite_block",
+    "kryptonitemod:deepslate_kryptonite_ore"
+  ]
+}

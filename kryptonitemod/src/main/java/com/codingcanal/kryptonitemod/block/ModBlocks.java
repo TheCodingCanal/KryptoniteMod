@@ -31,7 +31,7 @@ public class ModBlocks {
                     UniformInt.of(3, 6)), CreativeModeTab.TAB_MISC);
     public static final RegistryObject<Block> DEEPSLATE_KRYPTONITE_ORE = registerBlock("deepslate_kryptonite_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
-                    .strength(5f).requiresCorrectToolForDrops(),
+                    .strength(6f).requiresCorrectToolForDrops(),
                     UniformInt.of(4, 8)), CreativeModeTab.TAB_MISC);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {

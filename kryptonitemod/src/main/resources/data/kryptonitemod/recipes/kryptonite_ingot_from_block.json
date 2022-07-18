@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "kryptonitemod:kryptonite_block"
+    }
+  ],
+  "result": {
+    "item": "kryptonitemod:kryptonite_ingot",
+    "count": 9
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "kryptonite",
+  "ingredient": {
+    "item": "kryptonitemod:kryptonite"
+  },
+  "result": "kryptonitemod:kryptonite_ingot"
+}
