@@ -26,23 +26,34 @@ After you get the files:
 3. Open project with editor of choice (Eclipse needs File > Import > Gradle > Existing Gradle Project)
 ## Build With Gradle
 
-Gradle might start building when opening project
+### Eclipse Import Project and Gradle Build
 
-![Gradle finished building](https://i.imgur.com/uN2mXkB.png)
+File > Import > Gradle > Existing Gradle Project
 
-Eclipse Gradle Build
+![Eclipse Import Project](https://i.imgur.com/64IDJRu.png)
+
+Go down to Gradle Tasks and click on forgegradle runs > genEclipseRuns
 
 ![Eclipse Gradle Build](https://i.imgur.com/xx5C21y.png)
 
-IntelliJ Gradle Build
+### IntelliJ Open Project and Gradle Build
 
-![IntelliJ Gradle Tab](https://i.imgur.com/uBOPdai.png)
+Open project. The first Gradle build will start when opening project
+
+![Gradle finished building](https://i.imgur.com/uN2mXkB.png)
+
+Go to Gradle tab > Tasks > forgegradle runs > genIntellijRuns
+
 ![GenIntelliJRuns](https://i.imgur.com/v0GXMjc.png)
+
+### Visual Studio Code or any editor
 
 Can run these from command line as well
 ```
 ./gradlew genEclipseRuns or ./gradlew genVSCodeRuns or ./gradlew genIntellijRuns
 ```
+
+## Running Project, Starting Client
 
 Then run *runClient*. You can hit Play after this instead of *runClient*
 
