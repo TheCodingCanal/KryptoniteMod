@@ -65,7 +65,13 @@ Then run *runClient*. You can hit Play after this instead of *runClient*
 
 Let's create a new world as well.
 
+## Special Thanks to That Conference and All the Sponsors!
+
+![Sponsors](https://i.imgur.com/yeQN7Mp.png)
+
 ## Introduction
+
+### Jesse Dahir-Kanehl
 
 - Developer
 - Tinkerer
@@ -73,6 +79,8 @@ Let's create a new world as well.
 - Climber
 - Cyclist
 - Player of modded minecraft
+
+You can reach me on all platforms @TheCodingCanal or send an email to thecodingcanal@gmail.com
 
 Our mod is based on the kryptonite gem. You can replace that with whatever you'd like and make your own mod.
 
@@ -102,6 +110,12 @@ In parent directory
 3. Change the Mod Id and ArchiveBaseName. **Mod Id must be all lowercase, can contain numbers, hyphen, and underscore, but no other special characters. Keep it simple!!**
 4. Replace "examplemod" with "kryptonitemod"
 
+```
+version = '0.0.1-1.19'
+group = 'com.codingcanal.kryptonitemod' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'kryptonitemod'
+```
+
 ### The ExampleMod.java file
 Navigate to src > main > java > com.example.examplemod > ExampleMod.java
 1. Delete lines 37 through 44. We'll be setting up these functions in other classes to have better organization
@@ -126,6 +140,16 @@ ITEMS.register(modEventBus);
 ```
 
 3. Change the Mod Id
+
+```
+package com.codingcanal.kryptonitemod;
+@Mod(KryptoniteMod.MODID)
+public class KryptoniteMod
+{
+    // Define mod id in a common place for everything to reference
+    public static final String MODID = "kryptonitemod";
+```
+
 4. Rename file. Click on file and hit Shift + F6 or Right click > Refactor > Rename
 ![Renaming File](https://i.imgur.com/5FyA94I.png)
 5. Change the package name from com.example.examplemod to your package name. Rename packages and delete out old packages
@@ -139,6 +163,24 @@ In src > main > resources > META-INF > mods.toml
 2. Change modId
 3. Change version
 4. Change displayName
+
+```
+# The license for you mod. This is mandatory metadata and allows for easier comprehension of your redistributive properties.
+# Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
+license="MIT License"
+# A URL to refer people to when problems occur with this mod
+#issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
+# A list of mods - how many allowed here is determined by the individual mod loader
+[[mods]] #mandatory
+# The modid of the mod
+modId="kryptonitemod" #mandatory
+# The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
+# ${file.jarVersion} will substitute the value of the Implementation-Version as read from the mod's JAR file metadata
+# see the associated build.gradle script for how to populate this completely automatically during a build
+version="0.0.1-1.19" #mandatory
+ # A display name for the mod
+displayName="Kryptonite Mod" #mandatory
+```
 
 Come back to this file before you publish this for other people and flesh out the extra details to have better documentation
 
@@ -256,3 +298,12 @@ At this point your project should look something like branch [5-RecipesAndLoot](
 
 
 Looking at other mods might help give you ideas and allow you to learn more about what you can do with a mod. For example, check out a fun but simple mod [Iron Chests 2](https://github.com/TechnoVisionDev/IronChest)
+
+## Thanks for Coming!
+Join us on That.us and the That Slack!
+
+![Join us on THat.us](https://i.imgur.com/w7F8l2y.png)
+
+Join us in person next year, July 2023!
+
+![Next Year](https://i.imgur.com/l1GU45T.png)
