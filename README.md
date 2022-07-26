@@ -2,6 +2,18 @@
 
 Minecraft is the beloved game by many kids and adults like me for doing almost anything you want in a low res world. The modding community took that idea even further and allowed players to do even more. I love playing modpacks like Feed The Beast that combine a bunch of great mods that give you the ability to cast magic with ruins, travel to other planes, make nuclear reactors, and so much more. Maybe you’ve thought about some cool stuff you’d like to have or do in minecraft to make it even more fun. Well now you can by making your own mod. We’re going to be making our own simple mod, which will set the stage for you to build your own blocks, crafting recipes, tools, armor, mobs, game rules, etc. There’s a lot that we need to do to get to the point of playing our mod and I will guide you step by step in this workshop.
 
+## Table of Contents
+- [Download Forge](#Download-Forge-1.19)
+- [Build With Gradle](#Build-With-Gradle)
+- [Running Project, Starting Client](#Running-Project,-Starting-Client)
+- [Introduction](#Introduction)
+- [Setting up IDE (IntelliJ)](#Setting-up-IDE-(IntelliJ))
+- [Building Our Mod](#Building-Our-Mod)
+- [Adding our kryptonite ingot](#Adding-our-kryptonite-ingot)
+- [Adding Kryptonite Blocks](#Adding-Kryptonite-Blocks)
+- [Loot and Tables](#Recipes-and-Loot)
+- [Thanks for Coming](#Thanks-for-Coming!)
+
 ## Kryptonite Mod
 Based on Modding by Kaupenjoe’s [tutorial for v1.19 of Minecraft](https://www.youtube.com/watch?v=LpoSy091wYI&list=PLKGarocXCE1HrC60yuTNTGRoZc6hf5Uvl)
 
@@ -109,46 +121,43 @@ In parent directory
 2. Change the group name
 3. Change the Mod Id and ArchiveBaseName. **Mod Id must be all lowercase, can contain numbers, hyphen, and underscore, but no other special characters. Keep it simple!!**
 4. Replace "examplemod" with "kryptonitemod"
-
-```
-version = '0.0.1-1.19'
-group = 'com.codingcanal.kryptonitemod' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'kryptonitemod'
-```
+    ```
+    version = '0.0.1-1.19'
+    group = 'com.codingcanal.kryptonitemod' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+    archivesBaseName = 'kryptonitemod'
+    ```
 
 ### The ExampleMod.java file
 Navigate to src > main > java > com.example.examplemod > ExampleMod.java
 1. Delete lines 37 through 44. We'll be setting up these functions in other classes to have better organization
+    ```
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
+    // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
 
-```
-public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
-// Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
-public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
-
-// Creates a new Block with the id "examplemod:example_block", combining the namespace and path
-public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new Block(BlockBehaviour.Properties.of(Material.STONE)));
-// Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
-public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
-```
+    // Creates a new Block with the id "examplemod:example_block", combining the namespace and path
+    public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new Block(BlockBehaviour.Properties.of(Material.STONE)));
+    // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
+    public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+    ```
 
 2. Delete blocks and items regsiter
-```
-// Register the Deferred Register to the mod event bus so blocks get registered
-BLOCKS.register(modEventBus);
-// Register the Deferred Register to the mod event bus so items get registered
-ITEMS.register(modEventBus);
-```
+    ```
+    // Register the Deferred Register to the mod event bus so blocks get registered
+    BLOCKS.register(modEventBus);
+    // Register the Deferred Register to the mod event bus so items get registered
+    ITEMS.register(modEventBus);
+    ```
 
 3. Change the Mod Id
-
-```
-package com.codingcanal.kryptonitemod;
-@Mod(KryptoniteMod.MODID)
-public class KryptoniteMod
-{
-    // Define mod id in a common place for everything to reference
-    public static final String MODID = "kryptonitemod";
-```
+    ```
+    package com.codingcanal.kryptonitemod;
+    @Mod(KryptoniteMod.MODID)
+    public class KryptoniteMod
+    {
+        // Define mod id in a common place for everything to reference
+        public static final String MODID = "kryptonitemod";
+    ```
 
 4. Rename file. Click on file and hit Shift + F6 or Right click > Refactor > Rename
 ![Renaming File](https://i.imgur.com/5FyA94I.png)
@@ -190,9 +199,9 @@ Come back to this file before you publish this for other people and flesh out th
 2. To build for publishing
     - Gradle tab > Tasks > build > build
     - or put this into the terminal 
-```
-./gradlew build
-```
+    ```
+    ./gradlew build
+    ```
 3. Find jar file in build > libs folder
 
 At this point your project should look something like branch [2-BuildingOurMod](https://github.com/TheCodingCanal/KryptoniteMod/tree/2-BuildingOurMod)
@@ -203,24 +212,66 @@ At this point your project should look something like branch [2-BuildingOurMod](
 2. Add ModItems.java file and add to git if using that
 3. Add DeferredRegister ITEMS
     - Rememeber to hit tab to autofill and auto add imports
+    ```
+    public static final DeferredRegister<Item> ITEMS =
+            DeferredRegister.create(ForgeRegistries.ITEMS, KryptoniteMod.MODID);
+    ```
 4. Register ITEMS on the eventBus
+    ```
+    public static void register(IEventBus eventBus) {
+        ITEMS.register(eventBus);
+    }
+    ```
 5. Register ModItems on the modEventBus in **KryptoniteMod.java**
+    ``` 
+    ModItems.register(modEventBus);
+    ```
 6. Add RegistryObject KRYPTONITE
     - Can add more items by copying this line
     - Many many different properties to use to configure your items. We will come back to this
     - ![So many properties](https://i.imgur.com/KSbzHAf.png)
+    ```
+    public static final RegistryObject<Item> KRYPTONITE = ITEMS.register("kryptonite",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+    ```
 7. Add KRYPTONITE_INGOT
+    ```
+    public static final RegistryObject<Item> KRYPTONITE_INGOT = ITEMS.register("kryptonite_ingot",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+    ```
 
 ### Adding asset directories to our Resources
 1. Add directories to match this (might be easier to use File Explorer with Ctrl + Shift + N):
     - ![Asset directories](https://i.imgur.com/5mPEyov.png)
 2. Add en_us.json in lang folder
     - Add kryptonite_ingot and kryptonite's display names
+    ```
+    {
+    "item.kryptonitemod.kryptonite": "Kryptonite",
+    "item.kryptonitemod.kryptonite_ingot": "Kryptonite Ingot",
+    }
+    ```
 3. Add kryptonite.json in models > item folder
     - Configure texture
+    ```
+    {
+        "parent": "item/generated",
+        "textures": {
+            "layer0": "kryptonitemod:item/kryptonite"
+        }
+    }
+    ```
 4. Add kryptonite_ingot.json in same folder by copying it (select and hit F5)
+    ```
+    {
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "kryptonitemod:item/kryptonite_ingot"
+    }
+    }
+    ```
 5. Add texture files as png's:
-    - Use those provided in this repo
+    - Use those provided in the [google drive folder](https://drive.google.com/drive/folders/1BsLJ9lTH-YIzMHom8alh1Wun4ggR8Q04?usp=sharing)
     - Can make your own an online editor like [Nova Skin](https://minecraft.novaskin.me/resourcepacks)
     - Or use the External Libraries (Gradle: net.minecraft.client.extra > client-extra.jar > assets > minecraft > textures) and then use Paint, Gimp, etc to edit
         - ![Exteranl Libraries textures](https://i.imgur.com/Aw03Xxc.png)
@@ -231,30 +282,96 @@ At this point your project should look something like branch [3-AddingKryptonite
 ## Adding Kryptonite Blocks
 ### The ModBlocks.java file
 1. Add DeferredRegister BLOCKS
+    ```
+    public static final DeferredRegister<Block> BLOCKS =
+            DeferredRegister.create(ForgeRegistries.BLOCKS, KryptoniteMod.MODID);
+    ```
 2. Register BLOCKS on the event bus
+    ```
+    public static void register(IEventBus eventBus) {
+        BLOCKS.register(eventBus);
+    }
+    ```
 3. Register ModBlocks on the modEventBus in **KryptoniteMod.java**
+    ```
+    ModBlocks.register(modEventBus);
+    ```
 4. Create registerBlock function. These are helper functions
+    ```
+    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        return toReturn;
+    }
+    ```
 5. Register block items as well. Blocks are items as well and need to be registered as such
+    ```
+    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block, CreativeModeTab tab) {
+        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
+    }
+    ```
 6. Call registerBlockItem method from registerBlock
+    ```
+    registerBlockItem(name, toReturn, tab);
+    ```
 7. Register Kryptonite Block
     - Many materials to choose from which give it the correct sounds and visuals
     - Strength of 3f (float) sets how long it takes to mine
     - Currently won't drop any items until we configure the loot json files
     - ![Many properties to use](https://i.imgur.com/wZontXY.png)
+    ```
+    public static final RegistryObject<Block> KRYPTONITE_BLOCK = registerBlock("kryptonite_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.CACTUS)
+                    .strength(3f).requiresCorrectToolForDrops()), CreativeModeTab.TAB_MISC);
+    ```
 8. Register kryptonite ores
     - Use DropExperienceBlock instead of regular
     - Will give random amount experience between 3 and 6
     - Feel free to change things up to test out these properties and methods
+    ```
+    public static final RegistryObject<Block> KRYPTONITE_ORE = registerBlock("kryptonite_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(5f).requiresCorrectToolForDrops(),
+                    UniformInt.of(3, 6)), CreativeModeTab.TAB_MISC);
+    public static final RegistryObject<Block> DEEPSLATE_KRYPTONITE_ORE = registerBlock("deepslate_kryptonite_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(6f).requiresCorrectToolForDrops(),
+                    UniformInt.of(4, 8)), CreativeModeTab.TAB_MISC);
+    ```
 
 ### Kryptonite block assets
 1. Create kryptonite_block.json, kryptonite_ore.json, and deepslate_kryptonite_ore.json in blockstates
     - This defines the different states and variants for your block
     - More info can be found in the [Forge docs](https://docs.minecraftforge.net/en/1.12.x/models/using/#block-models)
+    ```
+    {
+        "variants": {
+            "": { "model":  "kryptonitemod:block/kryptonite_block" }
+        }
+    }
+    ```
 2. Create kryptonite_block.json, kryptonite_ore.json, and deepslate_kryptonite_ore.json in models > block
     - Using a cube texture with a single texture file for all sides
+    ```
+    {
+        "parent": "block/cube_all",
+        "textures": {
+            "all": "kryptonitemod:block/kryptonite_block"
+        }
+    }
+    ```
 3. Create kryptonite_block.json, kryptonite_ore.json, and deepslate_kryptonite_ore.json in models > item
     - refer to block model
+    ```
+    {
+    "parent": "kryptonitemod:block/kryptonite_block"
+    }
+    ```
 4. Add our blocks' display names to en_us.json in lang folder
+    ```
+    "block.kryptonitemod.kryptonite_block": "Block of Kryptonite",
+    "block.kryptonitemod.kryptonite_ore": "Kryptonite Ore",
+    "block.kryptonitemod.deepslate_kryptonite_ore": "Deepslate Kryptonite Ore"
+    ```
 
 Make sure assets looks like this
 ![Assets for blocks](https://i.imgur.com/HHYE9ur.png)
