@@ -3,11 +3,11 @@
 Minecraft is the beloved game by many kids and adults like me for doing almost anything you want in a low res world. The modding community took that idea even further and allowed players to do even more. I love playing modpacks like Feed The Beast that combine a bunch of great mods that give you the ability to cast magic with ruins, travel to other planes, make nuclear reactors, and so much more. Maybe you’ve thought about some cool stuff you’d like to have or do in minecraft to make it even more fun. Well now you can by making your own mod. We’re going to be making our own simple mod, which will set the stage for you to build your own blocks, crafting recipes, tools, armor, mobs, game rules, etc. There’s a lot that we need to do to get to the point of playing our mod and I will guide you step by step in this workshop.
 
 ## Table of Contents
-- [Download Forge](#Download-Forge-1.19)
+- [Download Forge](#Download-Forge)
 - [Build With Gradle](#Build-With-Gradle)
-- [Running Project, Starting Client](#Running-Project,-Starting-Client)
+- [Running Project, Starting Client](#Running-Project-by-Starting-Client)
 - [Introduction](#Introduction)
-- [Setting up IDE (IntelliJ)](#Setting-up-IDE-(IntelliJ))
+- [Setting up IDE](#Setting-up-IDE)
 - [Building Our Mod](#Building-Our-Mod)
 - [Adding our kryptonite ingot](#Adding-our-kryptonite-ingot)
 - [Adding Kryptonite Blocks](#Adding-Kryptonite-Blocks)
@@ -26,7 +26,7 @@ Prerequisites:
     - If using Eclipse you might need to [install a plugin](https://github.com/sebthom/extra-syntax-highlighting-eclipse-plugin) for editing json files with good syntax highlighting 
 - Helpful to know Git for downloading tutorial files
 - I would highly suggest a clipboard manager like the built in one to windows or Ditto
-## Download Forge 1.19
+## Download Forge
 Different options to get the forge files:
 - Git clone from this repo using [branch 1-BuildWithGradle](https://github.com/TheCodingCanal/KryptoniteMod/tree/1-BuildWithGradle)
 - Download Forge zip from my [google drive](https://drive.google.com/drive/folders/10EA8TrcMEiE2hjJkNC0sB3BwYUyGtYVj?usp=sharing)
@@ -65,7 +65,7 @@ Can run these from command line as well
 ./gradlew genEclipseRuns or ./gradlew genVSCodeRuns or ./gradlew genIntellijRuns
 ```
 
-## Running Project, Starting Client
+## Running Project by Starting Client
 
 Then run *runClient*. You can hit Play after this instead of *runClient*
 
@@ -100,7 +100,7 @@ We'll be using Forge. Forge is a framework for building mods. An alternative wou
 
 Pay attention to the version when looking at documentation and other tutorials/blogs. Things change and some info is no longer correct. Try to stick to recent sources that use 1.19 or 1.18.x
 
-## Setting up IDE (IntelliJ)
+## Setting up IDE
 
 ### Check Java version
 IntelliJ 
