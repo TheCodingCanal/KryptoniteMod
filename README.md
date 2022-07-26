@@ -544,8 +544,28 @@ At this point your project should look something like branch [4-AddingKryptonite
     - ![folder structure for tags](https://i.imgur.com/oZKOPgP.png)
 2. Add needs_iron_tool.json under blocks folder
     - you might want to later add files for diamond and stone tools
+    ```
+    {
+        "replace": false,
+        "values": [
+            "kryptonitemod:kryptonite_ore",
+            "kryptonitemod:kryptonite_block",
+            "kryptonitemod:deepslate_kryptonite_ore"
+        ]
+    }    
+    ```
 3. Add pickaxe.json under mineable folder
     - you might want to later add files for other tools (shovel, axe, hoe, shears, etc)
+    ```
+    {
+        "replace": false,
+        "values": [
+            "kryptonitemod:kryptonite_ore",
+            "kryptonitemod:kryptonite_block",
+            "kryptonitemod:deepslate_kryptonite_ore"
+        ]
+    }
+    ```
 
 Lets test it out. Mine some ore, smelt it, craft a block
 
