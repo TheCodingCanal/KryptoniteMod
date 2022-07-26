@@ -12,7 +12,7 @@ Minecraft is the beloved game by many kids and adults like me for doing almost a
 - [Adding our kryptonite ingot](#Adding-our-kryptonite-ingot)
 - [Adding Kryptonite Blocks](#Adding-Kryptonite-Blocks)
 - [Loot and Tables](#Recipes-and-Loot)
-- [Thanks for Coming](#Thanks-for-Coming!)
+- [Thanks for Coming](#Thanks-for-Coming)
 
 ## Kryptonite Mod
 Based on Modding by Kaupenjoe’s [tutorial for v1.19 of Minecraft](https://www.youtube.com/watch?v=LpoSy091wYI&list=PLKGarocXCE1HrC60yuTNTGRoZc6hf5Uvl)
@@ -393,13 +393,151 @@ At this point your project should look something like branch [4-AddingKryptonite
     - ![data folders](https://i.imgur.com/ayKlR2w.png)
 2. Add crafting recipe for kryptonite block
     - pattern can use any key you want and can include multiple items
+    - kryptonite_block.json
+    ```
+    {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "###",
+            "###",
+            "###"
+        ],
+        "key": {
+            "#": {
+            "item": "kryptonitemod:kryptonite_ingot"
+            }
+        },
+        "result": {
+            "item": "kryptonitemod:kryptonite_block"
+        }
+    }
+    ```
 3. Add other recipes for smelting, blasting, and turning blocks back into ingots
+    - kryptonite_ingot_from_blasting_kryptonite.json
+    ```
+    {
+        "type": "minecraft:blasting",
+        "cookingtime": 90,
+        "experience": 0.9,
+        "group": "kryptonite",
+        "ingredient": {
+            "item": "kryptonitemod:kryptonite"
+        },
+        "result": "kryptonitemod:kryptonite_ingot"
+    }
+    ```
+    - kryptonite_ingot_from_block.json
+    ```
+    {
+        "type": "minecraft:crafting_shapeless",
+        "ingredients": [
+            {
+            "item": "kryptonitemod:kryptonite_block"
+            }
+        ],
+        "result": {
+            "item": "kryptonitemod:kryptonite_ingot",
+            "count": 9
+        }
+    }
+    ```
+    - kryptonite_ingot_from_smelting_kryptonite.json
+    ```
+    {
+        "type": "minecraft:smelting",
+        "cookingtime": 200,
+        "experience": 0.7,
+        "group": "kryptonite",
+        "ingredient": {
+            "item": "kryptonitemod:kryptonite"
+        },
+        "result": "kryptonitemod:kryptonite_ingot"
+    }
+    ```
 
 ### Loot Tables
 1. Add blocks folder under loot tables
 2. Add files for each block
     - [Wiki doc for loot table](https://minecraft.fandom.com/wiki/Loot_table)
+    - kryptonite_block.json
+    ```
+    {
+        "type": "minecraft:block",
+        "pools": [
+            {
+            "rolls": 1,
+            "entries": [
+                {
+                "type": "minecraft:item",
+                "name": "kryptonitemod:kryptonite_block"
+                }
+            ]
+            }
+        ]
+    }
+    ```
     - Ores act differently if you have silk touch or just a regular pickaxe
+    - krptonite_ore.json and deepslate_kryptonite_ore.json
+    ```
+    {
+        "type": "minecraft:block",
+        "pools": [
+            {
+            "rolls": 1.0,
+            "bonus_rolls": 0.0,
+            "entries": [
+                {
+                "type": "minecraft:alternatives",
+                "children": [
+                    {
+                    "type": "minecraft:item",
+                    "conditions": [
+                        {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                            "enchantments": [
+                            {
+                                "enchantment": "minecraft:silk_touch",
+                                "levels": {
+                                "min": 1
+                                }
+                            }
+                            ]
+                        }
+                        }
+                    ],
+                    "name": "kryptonitemod:kryptonite_ore"
+                    },
+                    {
+                    "type": "minecraft:item",
+                    "functions": [
+                        {
+                        "function": "minecraft:set_count",
+                        "count": {
+                            "type": "minecraft:uniform",
+                            "min": 2.0,
+                            "max": 5.0
+                        },
+                        "add": false
+                        },
+                        {
+                        "function": "minecraft:apply_bonus",
+                        "enchantment": "minecraft:fortune",
+                        "formula": "minecraft:ore_drops"
+                        },
+                        {
+                        "function": "minecraft:explosion_decay"
+                        }
+                    ],
+                    "name": "kryptonitemod:kryptonite"
+                    }
+                ]
+                }
+            ]
+            }
+        ]
+    }
+    ```
 
 ### Adding tags
 1. Setup folders under data folder to match this:
@@ -416,7 +554,7 @@ At this point your project should look something like branch [5-RecipesAndLoot](
 
 Looking at other mods might help give you ideas and allow you to learn more about what you can do with a mod. For example, check out a fun but simple mod [Iron Chests 2](https://github.com/TechnoVisionDev/IronChest)
 
-## Thanks for Coming!
+## Thanks for Coming
 Join us on That.us and the That Slack!
 
 ![Join us on THat.us](https://i.imgur.com/w7F8l2y.png)
