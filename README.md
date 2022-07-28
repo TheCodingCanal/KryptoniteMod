@@ -89,7 +89,7 @@ Let's create a new world as well.
 
 ## Introduction
 
-### Jesse Dahir-Kanehl
+### Jesse Dahir-Kanehl (he/him/his)
 
 - Developer
 - Tinkerer
@@ -99,6 +99,11 @@ Let's create a new world as well.
 - Player of modded minecraft
 
 You can reach me on all platforms @TheCodingCanal or send an email to thecodingcanal@gmail.com
+
+## Take Aways
+- Learn the basics of how modding in minecraft works
+- Feel comfortable to start adding your own custom items in your mod
+- Learn a bit more about how Java projects work
 
 Our mod is based on the kryptonite gem. You can replace that with whatever you'd like and make your own mod.
 
