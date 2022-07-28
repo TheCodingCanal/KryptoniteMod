@@ -38,7 +38,6 @@ git clone https://github.com/TheCodingCanal/KryptoniteMod.git
 cd KryptoniteMod
 git checkout 1-BuildWithGradle
 ```
-- Download Forge zip from my [google drive](https://drive.google.com/drive/folders/10EA8TrcMEiE2hjJkNC0sB3BwYUyGtYVj?usp=sharing)
 - You can download other versions from [Forge](https://files.minecraftforge.net/net/minecraftforge/forge/) directly but it’s very spammy
 
 After you get the files:
