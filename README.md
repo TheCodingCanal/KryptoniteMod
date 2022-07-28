@@ -29,6 +29,11 @@ Prerequisites:
 ## Download Forge
 Different options to get the forge files:
 - Git clone from this repo using [branch 1-BuildWithGradle](https://github.com/TheCodingCanal/KryptoniteMod/tree/1-BuildWithGradle)
+```
+git clone https://github.com/TheCodingCanal/KryptoniteMod.git
+cd KryptoniteMod
+git checkout 1-BuildWithGradle
+```
 - Download Forge zip from my [google drive](https://drive.google.com/drive/folders/10EA8TrcMEiE2hjJkNC0sB3BwYUyGtYVj?usp=sharing)
 - You can download other versions from [Forge](https://files.minecraftforge.net/net/minecraftforge/forge/) directly but it’s very spammy
 
@@ -78,6 +83,7 @@ Then run *runClient*. You can hit Play after this instead of *runClient*
 Let's create a new world as well.
 
 ## Special Thanks to That Conference and All the Sponsors!
+### Thanks to Rural Sourcing for sponsoring me!
 
 ![Sponsors](https://i.imgur.com/yeQN7Mp.png)
 
