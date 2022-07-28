@@ -2,6 +2,10 @@
 
 Minecraft is the beloved game by many kids and adults like me for doing almost anything you want in a low res world. The modding community took that idea even further and allowed players to do even more. I love playing modpacks like Feed The Beast that combine a bunch of great mods that give you the ability to cast magic with ruins, travel to other planes, make nuclear reactors, and so much more. Maybe you’ve thought about some cool stuff you’d like to have or do in minecraft to make it even more fun. Well now you can by making your own mod. We’re going to be making our own simple mod, which will set the stage for you to build your own blocks, crafting recipes, tools, armor, mobs, game rules, etc. There’s a lot that we need to do to get to the point of playing our mod and I will guide you step by step in this workshop.
 
+## This is a Beginner level course in Minecraft modding
+- We won't get to creating new mobs, weapons, armor, or game mechanics 
+- We will get you started with modding some simple items and blocks so you can hit the ground running when you get home
+
 ## Table of Contents
 - [Download Forge](#Download-Forge)
 - [Build With Gradle](#Build-With-Gradle)
