@@ -143,7 +143,7 @@ In parent directory
 
 ### The ExampleMod.java file
 Navigate to src > main > java > com.example.examplemod > ExampleMod.java
-1. Delete lines 37 through 44. We'll be setting up these functions in other classes to have better organization
+1. Delete lines 36 through 44. We'll be setting up these functions in other classes to have better organization
     ```
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
     // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
@@ -222,7 +222,7 @@ At this point your project should look something like branch [2-BuildingOurMod](
 
 ## Adding our kryptonite ingot
 ### The ModItems file
-1. Add item package under kryptonitemod
+1. Add *item* package under kryptonitemod
 2. Add ModItems.java file and add to git if using that
 3. Add DeferredRegister ITEMS
     - Rememeber to hit tab to autofill and auto add imports
@@ -295,39 +295,41 @@ At this point your project should look something like branch [3-AddingKryptonite
 
 ## Adding Kryptonite Blocks
 ### The ModBlocks.java file
-1. Add DeferredRegister BLOCKS
+1. Add *block* package under kryptonitemod package
+2. Create the ModBlocks.java file
+3. Add DeferredRegister BLOCKS
     ```
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, KryptoniteMod.MODID);
     ```
-2. Register BLOCKS on the event bus
+4. Register BLOCKS on the event bus
     ```
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
     }
     ```
-3. Register ModBlocks on the modEventBus in **KryptoniteMod.java**
+5. Register ModBlocks on the modEventBus in **KryptoniteMod.java**
     ```
     ModBlocks.register(modEventBus);
     ```
-4. Create registerBlock function. These are helper functions
+6. Create registerBlock function. These are helper functions
     ```
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         return toReturn;
     }
     ```
-5. Register block items as well. Blocks are items as well and need to be registered as such
+7. Register block items as well. Blocks are items as well and need to be registered as such
     ```
     private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block, CreativeModeTab tab) {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
     }
     ```
-6. Call registerBlockItem method from registerBlock
+8. Call registerBlockItem method from registerBlock
     ```
     registerBlockItem(name, toReturn, tab);
     ```
-7. Register Kryptonite Block
+9. Register Kryptonite Block
     - Many materials to choose from which give it the correct sounds and visuals
     - Strength of 3f (float) sets how long it takes to mine
     - Currently won't drop any items until we configure the loot json files
@@ -337,7 +339,7 @@ At this point your project should look something like branch [3-AddingKryptonite
             () -> new Block(BlockBehaviour.Properties.of(Material.CACTUS)
                     .strength(3f).requiresCorrectToolForDrops()), CreativeModeTab.TAB_MISC);
     ```
-8. Register kryptonite ores
+10. Register kryptonite ores
     - Use DropExperienceBlock instead of regular
     - Will give random amount experience between 3 and 6
     - Feel free to change things up to test out these properties and methods
